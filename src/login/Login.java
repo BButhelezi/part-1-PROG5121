@@ -12,6 +12,7 @@ import java.util.Scanner;
 
         
 public class Login {
+   
 
     // Method: checkUserName()
     // Functionality: This method ensures that any username contains an underscore (_) and is less than five 
@@ -55,11 +56,11 @@ public class Login {
             return "Password is not correctly formatted; please ensure that the password contains at least eight characters, a capital letter, a number, and a special character.";
         }
     }
-
+     //Checks if username contains '_' and is at most 5 chars. 
     public static boolean checkUserName(String username) {
         return username.contains("_") && username.length() <= 5;
     }
-
+      //Checks password complexity (length, uppercase, digit, special char).
     public static boolean checkPasswordComplexity(String password) {
         boolean hasUppercase = password.matches(".*[A-Z].*");
         boolean hasDigit = password.matches(".*\\d.*");
@@ -74,11 +75,11 @@ public class Login {
         String digitsOnly = phoneNumber.replaceAll("[^\\d]", "");
         return phoneNumber.matches(regex) && digitsOnly.length() <= 13;
     }
-
+     // Checks if entered username and password match registered ones. 
     public static boolean loginUser(String registeredUsername, String registeredPassword, String enteredUsername, String enteredPassword) {
         return registeredUsername.equals(enteredUsername) && registeredPassword.equals(enteredPassword);
     }
-
+     // Returns login status message, including welcome message on success.
     public static String returnLoginStatus(String registeredUsername, String registeredPassword, String enteredUsername, String enteredPassword, String firstName, String lastName) {
         if (loginUser(registeredUsername, registeredPassword, enteredUsername, enteredPassword)) {
             return "Login Successful \nWelcome back, " + firstName + " " + lastName + "!";
